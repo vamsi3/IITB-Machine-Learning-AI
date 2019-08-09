@@ -1,0 +1,16 @@
+-----------------------------------------------------------------------------------------------------------------
+                NAME: Satti Vamsi Krishna Reddy                     ROLL NUMBER: 160050064
+-----------------------------------------------------------------------------------------------------------------
+
+    PATH
+=============
+
+Since, the correct action is performed rightly with probablility not 1, we see the particle randomly wanders while going to goal eventually.
+
+
+    PLOT
+=============
+
+As expected, the number of steps decreases with p, since say for p=0, we always take a random move regardless of policy hence the highest number of steps. The slight variations in values are due to randomess i.e., a wrong move might have been such that it got stuck in a more difficult scenario of the grid.
+
+Anyway, the graph decreases on an average more-or-less, which is definitely expected. At p=1, we directly take the action deterministically, which is observed by the plot with minimum steps to reach goal.

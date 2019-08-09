@@ -1,0 +1,39 @@
+-----------------------------------------------------------------------------------------------------------------
+                NAME: Satti Vamsi Krishna Reddy                     ROLL NUMBER: 160050064
+-----------------------------------------------------------------------------------------------------------------
+
+    Tuned Parameters
+========================
+
+LASSO:
+        Lambda:             339417.214
+        Min SSE:            168591929629.5364  (for 6-fold validation)
+        Max Iterations:     1000
+
+RIDGE:
+        Lambda:             12.43
+        Min SSE:            170317218765.08762 (for 6-fold validation)
+        Learning Rate:      0.00001
+        Max Iterations:     30000
+
+
+    Plot Explanations
+=========================
+
+The plots help us in tuning lambda by giving us more and more precise interval containing the optimal solution. *Iteratively*, we can get the optiminal values of lambda as given above by making our confidence interval smaller and smaller.
+
+Since L1 and L2 norms act as regularization methods, a very low lambda implies that regularization isn't strong enough to prevent overfitting of data and for very large lambdas, the model is highly trying to optimize regularization term than the actual SSE. Thus, an optimal lambda lies in the middle and hence the plots are in their respective shapes.
+
+
+    TASK 5
+==============
+
+The solution given by lasso is much more sparse (sparsity is the number of elements being (nearly) equal to zero) compared to that of ridge. An intuitive explanation for this is as follows:
+
+Consider the diagram 'Differences between Ridge and Lasso regression' from the assignment webpage. Now, an observation is that the point of optimal (minimal) solution of objective must lie on the point of contact of two contours (RSS contour and L1/L2 penalty contour) where the two contours are such that have no other point of contact. This is because, if we take such a point of contact and move along either of the contours, the total objective value increases.
+
+Now that we have this claim, as the contours of RSS move away from diagram (shown in figure), the chances that the first point of contact with any of the Penalty contours will be on the axis is more for L1 compared to L2 penalty (I shall leave this for intuition, a short explanation is that for L2, the contours are circles, the tangent gives a 180 degree exposure, whereas in case of L1, the square contour shape gives a 270 degree exposure at the points on the axis).
+
+Though the argument has been given for two dimensions, it works well in practice for n-dimensional weight vectors too. Thus, this is the reason why lasso gives more sparse solutions compared to ridge.
+
+The advantage of using lasso is the fact that this sparsity infact acts as a feature selector, i.e., the solutions are more interpretable. Since some of the weights are zero, lasso gives us the information that which particular features are most helpful (give us the most information) for determining the goal of our task. 

@@ -1,0 +1,12 @@
+=================================================================================================================
+-----------------------------------------------------------------------------------------------------------------
+				NAME: Satti Vamsi Krishna Reddy						ROLL NUMBER: 160050064
+-----------------------------------------------------------------------------------------------------------------
+=================================================================================================================
+
+
+This single resource is not something I've consulted or referred to during the course of the assignment. But, I mention it here since this may have had some good influence on the way I coded ConvolutionLayer in pure numpy.
+
+	[1] Assignment 2 of CS231n: Deep Learning for Computer Vision at Stanford University
+
+I had done this course online with assignments quite many times, most recenty in the past Winter (December 2018). So my method is inspired from this, and you may possibly find some resemblence in ideas / code at some places.

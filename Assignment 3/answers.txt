@@ -1,0 +1,58 @@
+=================================================================================================================
+-----------------------------------------------------------------------------------------------------------------
+				NAME: Satti Vamsi Krishna Reddy						ROLL NUMBER: 160050064
+-----------------------------------------------------------------------------------------------------------------
+=================================================================================================================
+
+
+
+
+======================================================
+						TASK 4
+======================================================
+
+Firstly, we note that a naive single perceptron without ensembling was giving an accuracy of 71.0% on test set.
+But with bagging and boosting, the accuracies were both quite greater than 75%, thereby showing how effective ensembling is.
+
+----------------------------------
+		PLOT EXPLANATIONS
+----------------------------------
+	
+	1. In boosting, as theoretically expected, the training accuracy indeed increases and tends to 100% with increasing boosting iterations.
+	
+	2. For both the plots, the training accuracy is monotonically increasing. (more strongly for boosting). For bagging, we do observe a slight saturation/stagnation at the end for training accuracy.
+	
+	3. In general, the training accuracy for boosting is much greater than bagging (specifically for more classifiers/boosting iterations)
+	
+	4. The fact that validation and test accuracy are clsoe enough and approximately equal of both the plots is quite expected. Indicating that the validations set is well in the same distribution as that of test set.
+
+
+----------------------------------
+			SUB-TASK 1
+----------------------------------
+	
+	1. Ideally, from theory, as the boosting iterations increase, the training accuracy in boosting should tend to 100%, and we indeed observe this in our plot. (goes to as high as 99.5%). This is because in Adaboost, the wrongly classified points are given more weights in the next hypotheses learned.
+	
+	2.	There are no similar guarantees for bagging, also, bagging doesn't have so large training accuracies comapred to boosting.
+
+
+----------------------------------
+			SUB-TASK 2
+----------------------------------
+
+TRUE. Consider an example like a triangular region inside with contains the points with labels as below.
+
+
+                             \      / 
+                              \  - /
+                               \  /
+                                \/
+                          +     /\     +
+                               /  \
+                              /  + \
+                       ¯¯¯¯¯¯/¯¯¯¯¯¯\¯¯¯¯¯¯
+                         -  /    +   \  -
+                           /          \
+
+
+Now, a single perceptron cannot perfectly classify this type of dataset. But an ensemble of perceptrons have the ability that if the weights of the perceptrons are such that they split the space alogn the edges of triangle, then the ensemble woth majority polling can (theoretically) classify that data with 100% accuracy. [In the sense that an ensemble has the ability to do so, unlike a single perceptron.]

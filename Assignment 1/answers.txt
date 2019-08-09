@@ -1,0 +1,60 @@
+======================================================
+						TASK 2
+======================================================
+
+----------------------------------
+			SUB-TASK 1
+----------------------------------
+
+Some of my observations are as described here:
+	1.	The trainingData (of size 8000) is skewed for some labels over the others. Samples with label 0 and 1 are nearly 30%, and since the initial weights are not set, at iteration zero, classify() function simply predicts label 0 for all. Hence, the plot for training accuracy starts at (approx.) 30%.
+	2.	On the other hand, the testData is has 10% labels with value 0, hence the plot of test accuracy starts at 10%
+	3.	As more and more data points are seen, the perceptron learning algorithm comes into play, and the training and test accuracies gradually increase.
+	4.	At nearly 1600 data points seen, 85.3125% training accuracy is observed (this is more-or-less the best training accuracy of the model). At this point of time, the model best tried to linearly separate the data, and couldn't do any better (because of inherit nature of the data itself). A similar argument holds for the test data.
+	5.	The fluctuations in the accuracies after this point, is due to the learning nature of perceptron algorithm. The perceptron learning algorithm takes relatively discrete steps rather than a continuous loss function being optimized. Hence, these discrete steps cause a wobbly and fluctuating classification as the training is loop through again and again.
+
+
+----------------------------------
+			SUB-TASK 2
+----------------------------------
+
+Some of my observations are as described here:
+	1.	We specifically note here that the number of epochs (iterations) and the test set size are fixed here and the training set size is being changed.
+	2.	Naturally, as the training data through which the model is trained (exposed) through, the better it learns the distribution and hence better predicts on the fixed test set. Thus, we see an increasing test accuracy in the plot (the tiny decreases in the accuracies in the middle are possibly because of slight skew in the training data to which the model learns. On an average though, the test accuracy increases as can be observed from the plot.)
+	3.	In case of the training accuracy, this value decreases because of the fact that the epochs are fixed. As, the model learns ('fits') a larger training data, it requries more iterations to learn it. But, since the iterations are fixed, larger data is not learned by the model well and hence the training accuracy decreases. (Basically, the model underfits the training data, due to insufficient epochs' the larger the data the more is the underfitting under a fixed iterations constraint.)
+
+----------------------------------
+	ANSWER TO QUESTION 1 ASKED
+----------------------------------
+
+The question was not completely clear for me. So, I shall answer this making some assumptions. Most importantly, I assume (and understand) that the question asks for prediction on 1 test point on the x axis.
+
+Firstly, let the number of labels in the dataset be k. Without any training the model has random weights (or zero weights). Regardless, since there is no prior on the dataset that the model sees, it classifies any point correctly with probabiltiy (100/k)%. Hence this is the expected accuracy of the classifier.
+
+======================================================
+						TASK 3.1
+======================================================
+
+----------------------------------
+			OUTPUTS
+----------------------------------
+
+COMMAND: python dataClassifier.py -c 1vr -t 800 -s 8000
+ACCURACY: 5706 correct out of 8000 (71.3%).
+
+COMMAND: python dataClassifier.py -c 1v1 -t 800 -s 8000
+ACCURACY: 5724 correct out of 8000 (71.5%).
+
+COMMAND: python dataClassifier.py -c 1vr -t 80000 -s 20000
+ACCURACY: 14752 correct out of 20000 (73.8%).
+
+COMMAND: python dataClassifier.py -c 1v1 -t 80000 -s 20000
+ACCURACY: 15766 correct out of 20000 (78.8%).
+
+----------------------------------
+			EXPLANATION
+----------------------------------
+
+Assumption here: In the questions, I assume that 'both datasets' implies that we are talking about datasets D1.2 and D2 mentioned in this question.
+
+The 1v1 model of classification has a lot more parameters to learn (a binary classifier - perceptron for every pair of label), and hence it has more 'capacity' (vaguely speaking) to understand the distribution of the data. But the difference is more prominent when the data sets on which the model is trained are larger as illustrated above. This is because with a lot more data, the 1v1 learns the distribution better due to its better ability and hence gives better results on test data.

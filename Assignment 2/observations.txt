@@ -1,0 +1,86 @@
+=================================================================================================================
+-----------------------------------------------------------------------------------------------------------------
+				NAME: Satti Vamsi Krishna Reddy						ROLL NUMBER: 160050064
+-----------------------------------------------------------------------------------------------------------------
+=================================================================================================================
+
+
+My observations for each of the tasks are as described below:
+
+
+==========================================================
+						TASK 2.1
+==========================================================
+
+LEARNING_RATE:				0.08
+BATCH SIZE:					64
+EPOCHS:						50
+
+ARCHITECTURE:
+
+	FullyConnectedLayer: 	2 -> 4
+	FullyConnectedLayer: 	4 -> 2
+
+
+COMMENT ON MINIMAL TOPOLOGY:
+
+The minimal topology network is intuitively with two adjacent FullyConnectedLayer(2, 2) as hidden layer + output layer [as discussed by Prof. during the lecture]. But I observed that this network is difficult to train. For some (quite few in proportion) random seed initializations, that network was getting stuck at some local minima (I guess!). Anyways, for whatsoever reason, some initializatons of parameters (a particular seeds) gave at best a 84% accuracy. After some tests, I felt the above architecture with hidden layer size 4 was giving good results in reasonable epochs and time for most of the seeds.
+
+
+==========================================================
+						TASK 2.2
+==========================================================
+
+LEARNING_RATE:				0.05
+BATCH SIZE:					64
+EPOCHS:						50
+
+ARCHITECTURE:
+
+	FullyConnectedLayer: 	2 -> 2
+	FullyConnectedLayer: 	2 -> 2
+
+
+COMMENT ON MINIMAL TOPOLOGY:
+
+The above network is minimal since reducing the hidden layer size to 1 (i.e. the architecture FullyConnectedLayer(2, 1), FullyConnectedLayer(1, 2)) cannot non-linearly separate the data (non-linear information is required to be stored at one hidden node hence not possible). The above architecture has enough ability to learn the SemiCircle dataset well as verified by the results. This is only possible due to the sigmoid non-linearlity present on the hidden layer.
+
+==========================================================
+						TASK 2.3
+==========================================================
+
+LEARNING_RATE:				0.01
+BATCH SIZE:					32
+EPOCHS:						40
+
+ARCHITECTURE:
+
+	FullyConnectedLayer: 	784 -> 10
+
+
+COMMENT ON MINIMAL TOPOLOGY:
+
+Obviously, that is the most minimal possible architecture. We need to alteast have one layer having input_dim and other layer having output_dim. This gives > 90% accuracy for all seeds I've tested on, so no more arguments on minimality here.
+
+
+==========================================================
+						TASK 2.4
+==========================================================
+
+LEARNING_RATE:				0.2
+BATCH SIZE:					16
+EPOCHS:						30
+RANDOM SEED:				42
+
+[It takes around 90 seconds to train my network on my PC with this configuration of hyperparameters]
+
+ARCHITECTURE:
+
+	ConvolutionLayer:		out_channels -> 4; filter -> (11, 11); stride -> 7
+	FlattenLayer:			
+	FullyConnectedLayer:	64 -> 10
+
+
+COMMENT ON MINIMAL TOPOLOGY:
+
+I'm unable to comment on its minimality a lot. I haven't tried architecture on a very minute scale of hyperparameters, though on a average this architecture gives good results on most seeds. More smaller architectures caused some good number of seeds to give < 35% accuracy despite a lot of extensive experimentation. Hence, I finally decided upon this architecture to be the best tradeoff for achieving > 35 % accuracy on most seeds I tested on.

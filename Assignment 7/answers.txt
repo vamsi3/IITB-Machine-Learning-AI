@@ -1,0 +1,64 @@
+-----------------------------------------------------------------------------------------------------------------
+                NAME: Satti Vamsi Krishna Reddy                     ROLL NUMBER: 160050064
+-----------------------------------------------------------------------------------------------------------------
+
+    TASK 3
+==============
+
+Define cost of transition from state1 to state2 in sudoku as negative of the difference between total (sum of) possibilities across all squares in each of the states. The total number of possibilities in an end state is 81 (only one possibility left in each square).
+
+Under this definition of transition cost, path-cost is simply the sum of transition costs across all transitions in the path. Note that the goal's sum of possibilities is fixed, and other non-optimal states have sum-of-possibiliies strictly greater than 81.
+
+Under a 'null-heuristic', i.e. heuristic value is 0 for all states, the A* is equivalent to UCS, may not necessarily lead to minimal expansions. I believe if we are looking for strictly informed searches, one heuristic would be the sum-of-possibilities across all squares in that state itself. I'm not sure about the implications of using this heuristic though.
+
+
+    TASK 7
+==============
+
+(a) The null heuristic mimics A* as a Dijkstra's algorithm, and we've seen higher nodes expanded in task 5 than task 6 (see values below). This is an obvious advantage of using the heuristic, i.e. if the heuristic is good, it gives us an idea about the future and not just the past (unlike in Dijkstra, where we don't have any information about the 'future' distance from current state to goal).
+
+(b) I'm slightly confused at the interpretation of the question.
+
+Assuming our goal is to reach 'any one' of the multiple nodes given, a heuristic I believe that's good is to take the value "distance from current state to goal [as given by util.points2distance()])" which is mininum varied among all goals (i.e. the given multiple nodes).
+
+Assuming our goal is to reach 'all' of the multiple nodes given, and we're using A* to say find the optimal least cost path. Then, this problem is equivalent to the travelling salesman problem, which is NP-hard. Nevertheless, again the above heuristic could be used, restarting A* whenever we reach one of the multiple nodes. (I msotly guess this was not the gist of the question, just mentioned this for sake of completeness.)
+
+
+
+
+    OUTPUT OF AUTOGRADER RUN ON MY PC
+=========================================
+
+
+PS E:\Semester 6\CS 335 - AI & ML Lab\Assignment 7\search-new> python main.py
+D:\Anaconda3\envs\cs335\lib\site-packages\folium\__init__.py:59: UserWarning: This version of folium is the last to support Python 2. Transition to Python 3 to be able to receive updates and fixes. Check out https://python3statement.org/ for more info.
+  UserWarning
+Grading task 1
+Received Marks : 0.5 + 0.5 + 2 = 3.0/3
+--------------------------------------------------------
+Grading task 2
+Solved 95 of 95 of the top95 puzzles (avg 0.01 secs (95 Hz), max 0.04 secs).
+Nodes expanded = (avg 29.00, max 143.00 ).
+Solved 11 of 11 of the hardest puzzles (avg 0.01 secs (154 Hz), max 0.02 secs).
+Nodes expanded = (avg 12.00, max 69.00 ).
+Received Marks : 1 + 1 = 2/2
+--------------------------------------------------------
+Grading task 3
+This is a manually graded task, write your answers in the answers.txt file
+--------------------------------------------------------
+Grading task 4
+Received Marks : 0.5 + 0.5 + 2.0 = 3.0/3
+--------------------------------------------------------
+Grading task 5
+Number of nodes expanded for IIT: 80
+Number of nodes expanded for IIT: 26743
+Received Marks : 2/2
+--------------------------------------------------------
+Grading task 6
+Number of nodes expanded for IIT: 21
+Number of nodes expanded for Mumbai: 13051
+Received Marks : 2/2
+--------------------------------------------------------
+Grading task 7
+This is a manually graded task, write your answers in the answers.txt file
+--------------------------------------------------------

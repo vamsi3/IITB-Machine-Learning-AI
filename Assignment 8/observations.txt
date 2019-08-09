@@ -1,0 +1,140 @@
+-----------------------------------------------------------------------------------------------------------------
+                NAME: Satti Vamsi Krishna Reddy                     ROLL NUMBER: 160050064
+-----------------------------------------------------------------------------------------------------------------
+
+
+    COMPARING task2_submit.png, task3_submit.png AND task4_submit.png
+=========================================================================
+
+    1. We first note that the initialization strategies used in task 3 (Nearest Neighbour) and task 4 (Euclidean Approximation) are definitely better than using a random initialzation (as done in task 2). This is evident from high intial tour length in task2_submit.png compared to that in task3_submit.png and task4_submit.png
+
+    2. In case of initialization with nearest neighbor construction (as in task 3), the choice of starting city does have slightly significant effect on tour length of the initialization, and also on how the hillClimbing optimization behaves. In particular, among choices of initial cities, all of them may not be good for final convergence in hillClimbing. Additionaly, neither does lower initial tour length indicate anything about how lower is the local minima to which it converges.
+
+    3. As mentioned in the assignment webpage, the initial tour length in task 4 is guaranteed to be no more than twice as long as the optimal tour. But, we again clarify that this is not indicative of whether this necessarily always converges to a better local minima than other initialization methods like nearest neighbor construction.
+
+    4. So to conclude the comparision of task 3 and task 4, since euclidean approximation has theoretical guarantees with initialization, it seems to be a better intialization when we're willing to go ahead with one try. Otherwise, nearest neighbor method when tried out with a random subset of initial cities may give us better (local) optimal tour in practice without any theoretical guarantees.
+
+
+
+    COMPARING task2_submit.png AND task6_submit.png
+=======================================================
+
+    1. We note that the intialization is random here. Observe from the plots that just using 2-opt neighbors lead to requirement of nearly 60-70 iterations for hillClimbing (depending on random seed). Whereas, when using both 2-opt and 3-opt neighbors together, we observe convergence within 40-50 iterations.
+
+    2. This shows the effectiveness of exploring 2-opt + 3-opt neighbor space at each iteration. Surely, choosing from 2-opt + 3-opt neighbor is likely to perform better than just 2-opt (since the former is a superset of the latter). Though, choosing a superset may possibly lead to a bad minima in the future, on an average case though searching through a larger space of neighbors works as can be seen from the graphs in this case.
+
+
+
+    COMPARING task3_submit.png AND task7_submit.png
+=======================================================
+
+    1. In this case too, we observe that the convergences are faster when 2-opt + 3-opt neighbors are used.
+
+    2. Observe that the improvement of using 2-opt + 3-opt is a decrease in nearly 4-6 iterations, which is much less compared to the decrease in the previous comparision (task2_submit.png and task6_submit.png). This is likely due to the fact that nearest neighbor intialization is much better compared to random initialzation, thus the convergence itself was relatively faster in task 3 compared to task 2.
+
+    3. In fact, in some cases like when starting city is 3 or 4, the final local minima's tour lengths themselves are much better (lower) in task7_submit.png compared to task3_submit.png; thereby suggesting that using both 2-opt + 3-opt is in general likely to be a much better strategy for even improving the final local optima reached by hillClimbing.
+
+
+
+    COMPARING task4_submit.png AND task8_submit.png
+=======================================================
+
+    1. In this case too, we observe that the convergences are faster (very slightly in this case) when 2-opt + 3-opt neighbors are used (nicely following the pattern being observed since the last two plot comparisions). Indicating that 2-opt + 3-opt is indeed on an average a better strategy.
+
+    2. The plots task4_submit.png and task8_submit.png are quite similar, indicating that using 2-opt + 3-opt neighbors in this case was not super-effective. But since we have only compared the plot for only one MST (min. spanning tree), an improvement can actually be possibly seen with other input city graphs. This case is more or less similar to the previous nearest-neighbor strategy in terms of improvements using 2-opt + 3-opt neighbors logically. So, I'd tend to echo similar arguments again here.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+    CONSOLE OUTPUTS ON MY SYSTEM
+====================================
+
+            TESTING
+        ===============
+
+
+--------------------------------------------------------------------------------
+[TASK 2]
+
+number of cities are  52
+7661.013272126167
+
+--------------------------------------------------------------------------------
+[TASK 3]
+
+7841.387787835105
+
+--------------------------------------------------------------------------------
+[TASK 4]
+
+7713.034759376225
+
+--------------------------------------------------------------------------------
+[TASK 6]
+
+number of cities are  52
+7544.36590190409
+
+--------------------------------------------------------------------------------
+[TASK 7]
+
+7799.180934957466
+
+--------------------------------------------------------------------------------
+[TASK 8]
+
+7658.958320375774
+
+
+
+
+            SUBMIT
+        ===============
+
+
+--------------------------------------------------------------------------------
+[TASK 2]
+
+number of cities are  70
+number of cities are  70
+number of cities are  70
+number of cities are  70
+number of cities are  70
+
+--------------------------------------------------------------------------------
+[TASK 3]
+
+
+--------------------------------------------------------------------------------
+[TASK 4]
+
+
+--------------------------------------------------------------------------------
+[TASK 6]
+
+number of cities are  70
+number of cities are  70
+number of cities are  70
+number of cities are  70
+number of cities are  70
+
+--------------------------------------------------------------------------------
+[TASK 8]
+
+
+--------------------------------------------------------------------------------
+[TASK 9]
+
